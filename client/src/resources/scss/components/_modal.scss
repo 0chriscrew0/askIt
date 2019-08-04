@@ -1,0 +1,33 @@
+.myModal {
+  width: 90%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  position: fixed;
+  top: 20vh;
+  left: 5%;
+  z-index: 101;
+
+  @include media-breakpoint-up(md) {
+    width: 50rem;
+    left: calc((100% - 50rem) / 2);
+  }
+}
+
+.myModal__header h4 {
+  padding: 1rem;
+  color: white;
+}
+
+.myModal__content {
+  padding: 2rem;
+}
+
+.myModal__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.5rem 0;
+  margin-right: 0.75rem;
+  input {
+    margin: 0 0.75rem;
+  }
+}

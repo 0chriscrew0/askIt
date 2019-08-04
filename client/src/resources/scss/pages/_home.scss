@@ -1,0 +1,87 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+.hero {
+  text-align: center;
+
+  .hero-title {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-img {
+    background: url("../images/hero-image.jpg");
+    /* Set a specific height */
+    height: 200px;
+    @include media-breakpoint-up(md) {
+      height: 250px;
+    }
+    @include media-breakpoint-up(lg) {
+      height: 400px;
+    }
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .hero-desc {
+    padding: 3rem 4rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.site-info {
+  text-align: center;
+  color: $white;
+  .site-info-heading {
+    padding: 1rem;
+  }
+  .site-info-desc {
+    padding: 0.5rem;
+    padding-top: 0.2rem;
+  }
+}
+
+.features {
+  text-align: center;
+  @include media-breakpoint-up(lg) {
+    h3 {
+      padding-bottom: 0.5rem;
+    }
+  }
+  .card {
+    max-width: 350px;
+    box-shadow: $box-shadow;
+    .card-header {
+      color: $white;
+      background-color: $primary;
+    }
+    .card-body {
+      color: $black;
+      background-color: $gray;
+    }
+  }
+}
+
+.get-started {
+  text-align: center;
+  color: white;
+  .get-started-heading {
+    font-size: 3rem;
+  }
+  .get-started-subheading {
+    font-size: 1.6rem;
+  }
+  a,
+  a:hover {
+    color: white;
+    border-color: white;
+  }
+  a:hover {
+    background-color: white;
+    color: black;
+  }
+}

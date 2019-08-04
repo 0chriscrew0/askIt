@@ -1,0 +1,5 @@
+/node_modules
+/.vscode
+/client/node_modules
+prepros-6.config
+nodemon.json
