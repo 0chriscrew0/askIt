@@ -75,24 +75,6 @@ const Header = () => (
                       data-toggle="collapse"
                       data-target=".navbar-collapse.show"
                     >
-                      <NavLink className="nav-link" to="/account">
-                        Account
-                      </NavLink>
-                    </li>
-                    <li
-                      className="nav-item px-3"
-                      data-toggle="collapse"
-                      data-target=".navbar-collapse.show"
-                    >
-                      <NavLink className="nav-link" to="/answers">
-                        Answers
-                      </NavLink>
-                    </li>
-                    <li
-                      className="nav-item px-3"
-                      data-toggle="collapse"
-                      data-target=".navbar-collapse.show"
-                    >
                       <NavLink
                         className="nav-link"
                         to="/logout"
