@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import isEmpty from "../../utils/is-empty";
 import AuthContext from "../../context/Auth-Context";
+import { Link } from "react-router-dom";
 
 import Spinner from "../Spinner";
 import Backdrop from "../Backdrop";
@@ -205,19 +206,25 @@ class SingleQuestion extends Component {
 
               <hr />
 
-              {this.state.question.creator._id === this.context.userId ? (
-                <div />
+              {this.context.userId ? (
+                this.state.question.creator._id === this.context.userId ? (
+                  <div />
+                ) : (
+                  <input
+                    type="button"
+                    value={
+                      isEmpty(this.state.question.answers)
+                        ? "Be the first to answer"
+                        : "Answer Question"
+                    }
+                    onClick={this.answerClick}
+                    className="btn btn-sm btn-outline-primary my-3"
+                  />
+                )
               ) : (
-                <input
-                  type="button"
-                  value={
-                    isEmpty(this.state.question.answers)
-                      ? "Be the first to answer"
-                      : "Answer Question"
-                  }
-                  onClick={this.answerClick}
-                  className="btn btn-sm btn-outline-primary my-3"
-                />
+                <div>
+                  Please <Link to="/login">login</Link> to answer this question.
+                </div>
               )}
 
               {isEmpty(this.state.question.answers) ? (
