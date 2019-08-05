@@ -65,9 +65,11 @@ class Routes extends Component {
             <Route path="/about" component={About} />
             <Route path="/questions" component={Questions} />
             <Route path="/question/:questionId" component={SingleQuestion} />
-            <Route path="/new-question" component={CreateQuestion} />
             {this.state.token && <Route path="/answers" component={Answers} />}
             {this.state.token && <Route path="/account" component={Account} />}
+            {this.state.token && (
+              <Route path="/new-question" component={CreateQuestion} />
+            )}
             {!this.state.token && <Redirect to="/login" exact />}
           </Switch>
         </Layout>
