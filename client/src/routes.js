@@ -8,8 +8,6 @@ import About from "./components/About";
 import Questions from "./components/Questions";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
-import Answers from "./components/Answers";
-import Account from "./components/Account";
 import CreateQuestion from "./components/Questions/CreateQuestion";
 import SingleQuestion from "./components/Questions/SingleQuestion";
 
@@ -65,8 +63,6 @@ class Routes extends Component {
             <Route path="/about" component={About} />
             <Route path="/questions" component={Questions} />
             <Route path="/question/:questionId" component={SingleQuestion} />
-            {this.state.token && <Route path="/answers" component={Answers} />}
-            {this.state.token && <Route path="/account" component={Account} />}
             {this.state.token && (
               <Route path="/new-question" component={CreateQuestion} />
             )}
