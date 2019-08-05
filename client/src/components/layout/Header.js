@@ -45,15 +45,6 @@ const Header = () => (
                         Home
                       </NavLink>
                     </li>
-                    <li
-                      className="nav-item px-3"
-                      data-toggle="collapse"
-                      data-target=".navbar-collapse.show"
-                    >
-                      <NavLink className="nav-link" to="/about">
-                        About
-                      </NavLink>
-                    </li>
                   </React.Fragment>
                 )}
 

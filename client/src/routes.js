@@ -4,7 +4,6 @@ import AuthContext from "./context/Auth-Context";
 
 import Layout from "./HOC/Layout";
 import Home from "./components/Home";
-import About from "./components/About";
 import Questions from "./components/Questions";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
@@ -44,9 +43,7 @@ class Routes extends Component {
         <Layout>
           <Switch>
             {this.state.token && <Redirect from="/" to="/questions" exact />}
-            {this.state.token && (
-              <Redirect from="/about" to="/questions" exact />
-            )}
+
             {this.state.token && (
               <Redirect from="/login" to="/questions" exact />
             )}
@@ -60,7 +57,6 @@ class Routes extends Component {
             )}
 
             <Route path="/" component={Home} exact />
-            <Route path="/about" component={About} />
             <Route path="/questions" component={Questions} />
             <Route path="/question/:questionId" component={SingleQuestion} />
             {this.state.token && (
