@@ -64,8 +64,8 @@ class CreateQuestion extends Component {
   render() {
     return (
       <div className="container">
-        <h4 className="display-4">New Question</h4>
-        <hr className="questions-line mb-4" />
+        <h4 className="display-5">New Question</h4>
+        <hr className="questions-line mb-4 mt-0" />
 
         <form onSubmit={this.createQuestion}>
           <div className="form-group">
