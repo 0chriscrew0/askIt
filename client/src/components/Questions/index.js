@@ -94,7 +94,7 @@ class Questions extends Component {
               <h4 className="display-5 pl-4 text-white">Questions</h4>
               <Link
                 to="/new-question"
-                className="btn btn-sm ml-3 my-3 btn-outline-light"
+                className="btn btn-sm ml-3 my-3 btn-outline-white"
               >
                 Ask a new Question
               </Link>

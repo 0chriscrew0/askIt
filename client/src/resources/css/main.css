@@ -7593,3 +7593,17 @@ footer {
   .get-started a:hover {
     background-color: white;
     color: black; }
+
+.questions-line {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+
+.btn-outline-white, .btn-outline-white:hover {
+  color: white;
+  border-color: white; }
+
+.btn-outline-white:hover {
+  background-color: white;
+  color: black; }
