@@ -9,7 +9,7 @@ const Hero = () => {
           <div className="col-xs-12 mx-auto hero-title">
             <Fade cascade>
               <div>
-                <h1 className="hero-heading display-5">Question Site</h1>
+                <h1 className="hero-heading display-5">Askit</h1>
                 <p className="hero-subheading lead">
                   Ask and Answer Questions Online
                 </p>

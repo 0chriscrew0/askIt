@@ -28,7 +28,7 @@ const SiteInfo = () => {
                 </p>
               </div>
               <div className="col-sm-12">
-                <Link className="btn btn-sm btn-outline-light" to="/about">
+                <Link className="btn btn-sm btn-outline-light" to="/">
                   Learn More
                 </Link>
               </div>

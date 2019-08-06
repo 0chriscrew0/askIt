@@ -20,10 +20,10 @@ const Features = () => {
                   src={image1}
                   alt="sheet music"
                 />
-                <h3 className="card-header">Card header</h3>
+                <h3 className="card-header">Ask anything</h3>
                 <div className="card-body">
-                  <h5 className="card-title">Special title treatment</h5>
-                  <h6 className="card-subtitle">Support card subtitle</h6>
+                  <h5 className="card-title">Anything at all!</h5>
+                  <h6 className="card-subtitle">Go on, ask!</h6>
                 </div>
               </div>
             </div>
@@ -34,10 +34,12 @@ const Features = () => {
                   src={image2}
                   alt="sheet music"
                 />
-                <h3 className="card-header">Card header</h3>
+                <h3 className="card-header">Answer</h3>
                 <div className="card-body">
-                  <h5 className="card-title">Special title treatment</h5>
-                  <h6 className="card-subtitle">Support card subtitle</h6>
+                  <h5 className="card-title">Help someone out!</h5>
+                  <h6 className="card-subtitle">
+                    If you know the answer, don't be shy!
+                  </h6>
                 </div>
               </div>
             </div>
@@ -48,10 +50,10 @@ const Features = () => {
                   src={image3}
                   alt="sheet music"
                 />
-                <h3 className="card-header">Card header</h3>
+                <h3 className="card-header">Ask anything!</h3>
                 <div className="card-body">
-                  <h5 className="card-title">Special title treatment</h5>
-                  <h6 className="card-subtitle">Support card subtitle</h6>
+                  <h5 className="card-title">Anythign at all!</h5>
+                  <h6 className="card-subtitle">Go on, ask!</h6>
                 </div>
               </div>
             </div>
@@ -62,10 +64,12 @@ const Features = () => {
                   src={image4}
                   alt="sheet music"
                 />
-                <h3 className="card-header">Card header</h3>
+                <h3 className="card-header">Answer</h3>
                 <div className="card-body">
-                  <h5 className="card-title">Special title treatment</h5>
-                  <h6 className="card-subtitle">Support card subtitle</h6>
+                  <h5 className="card-title">Help someone out!</h5>
+                  <h6 className="card-subtitle">
+                    If you know the answer, don't be shy!
+                  </h6>
                 </div>
               </div>
             </div>
