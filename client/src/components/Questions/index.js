@@ -96,7 +96,7 @@ class Questions extends Component {
                 to="/new-question"
                 className="btn btn-sm ml-3 my-3 btn-outline-white"
               >
-                Ask a new Question
+                New Question
               </Link>
             </div>
           </div>
