@@ -20,10 +20,10 @@ const Features = () => {
                   src={image1}
                   alt="sheet music"
                 />
-                <h3 className="card-header">Ask anything</h3>
+                <h3 className="card-header">Register</h3>
                 <div className="card-body">
-                  <h5 className="card-title">Anything at all!</h5>
-                  <h6 className="card-subtitle">Go on, ask!</h6>
+                  <h5 className="card-title">It's free!</h5>
+                  <h6 className="card-subtitle">No credit card required</h6>
                 </div>
               </div>
             </div>
@@ -34,12 +34,10 @@ const Features = () => {
                   src={image2}
                   alt="sheet music"
                 />
-                <h3 className="card-header">Answer</h3>
+                <h3 className="card-header">View Questions</h3>
                 <div className="card-body">
-                  <h5 className="card-title">Help someone out!</h5>
-                  <h6 className="card-subtitle">
-                    If you know the answer, don't be shy!
-                  </h6>
+                  <h5 className="card-title">Save time asking</h5>
+                  <h6 className="card-subtitle">If someone already asked</h6>
                 </div>
               </div>
             </div>
@@ -52,7 +50,7 @@ const Features = () => {
                 />
                 <h3 className="card-header">Ask anything!</h3>
                 <div className="card-body">
-                  <h5 className="card-title">Anythign at all!</h5>
+                  <h5 className="card-title">Anything at all!</h5>
                   <h6 className="card-subtitle">Go on, ask!</h6>
                 </div>
               </div>
@@ -67,9 +65,7 @@ const Features = () => {
                 <h3 className="card-header">Answer</h3>
                 <div className="card-body">
                   <h5 className="card-title">Help someone out!</h5>
-                  <h6 className="card-subtitle">
-                    If you know the answer, don't be shy!
-                  </h6>
+                  <h6 className="card-subtitle">If you know the answer</h6>
                 </div>
               </div>
             </div>
