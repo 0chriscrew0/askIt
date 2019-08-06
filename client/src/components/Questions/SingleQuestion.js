@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import isEmpty from "../../utils/is-empty";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
 import AuthContext from "../../context/Auth-Context";
 import { Link } from "react-router-dom";
 
@@ -17,12 +19,6 @@ class SingleQuestion extends Component {
     answering: false,
     isLoading: false
   };
-
-  constructor(props) {
-    super(props);
-
-    this.bodyEl = React.createRef();
-  }
 
   static contextType = AuthContext;
 
@@ -102,8 +98,8 @@ class SingleQuestion extends Component {
     });
   };
 
-  onModalConfirm = async () => {
-    const body = this.bodyEl.current.value;
+  onModalConfirm = async values => {
+    const { body } = values;
     console.log(body);
     const questionId = this.state.question._id;
     console.log(questionId);
@@ -162,22 +158,41 @@ class SingleQuestion extends Component {
           <Modal
             title="Answer this question"
             cancel
-            confirm
             onCancel={this.onModalCancel}
-            onConfirm={this.onModalConfirm}
           >
-            <form>
-              <div className="form-group">
-                <label htmlFor="body">Your Answer</label>
-                <textarea
-                  name="body"
-                  ref={this.bodyEl}
-                  className="form-control"
-                  id="body"
-                  placeholder="Enter your answer for this question"
-                />
-              </div>
-            </form>
+            <Formik
+              intialValues={{
+                body: ""
+              }}
+              validationSchema={Yup.object().shape({
+                body: Yup.string().required("Please provide an answer")
+              })}
+              onSubmit={this.onModalConfirm}
+              render={({ touched, errors, isSubmitting }) => (
+                <Form>
+                  <div className="form-group">
+                    <Field
+                      component="textarea"
+                      name="body"
+                      className={`form-control ${touched.body &&
+                        errors.body &&
+                        "is-invalid"}`}
+                      placeholder="Enter your answer for this question"
+                    />
+                    {touched.body && errors.body && (
+                      <p className="text-danger pt-1">{errors.body}</p>
+                    )}
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn btn-block btn-primary"
+                  >
+                    Submit
+                  </button>
+                </Form>
+              )}
+            />
           </Modal>
         )}
         <div className="container">
@@ -197,7 +212,7 @@ class SingleQuestion extends Component {
                   <p className="card-title text-muted">
                     Asked by{" "}
                     {this.state.question.creator._id === this.context.userId
-                      ? "You"
+                      ? "you"
                       : this.state.question.creator.username}{" "}
                     on {new Date(this.state.question.date).toLocaleDateString()}
                   </p>

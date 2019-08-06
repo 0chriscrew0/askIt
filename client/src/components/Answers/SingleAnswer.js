@@ -77,8 +77,11 @@ class SingleAnswer extends Component {
               <p className="card-text">{this.props.body}</p>
 
               <p className="card-title text-muted">
-                Answered by {this.props.creator.username} on{" "}
-                {new Date(this.props.createdAt).toLocaleDateString()}
+                Answered by{" "}
+                {this.props.creator._id === this.props.currentUserId
+                  ? "you"
+                  : this.props.creator.username}{" "}
+                on {new Date(this.props.createdAt).toLocaleDateString()}
               </p>
             </div>
           </div>
