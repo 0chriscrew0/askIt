@@ -5,20 +5,10 @@ import * as Yup from "yup";
 import AuthContext from "../../context/Auth-Context";
 
 class CreateQuestion extends Component {
-  constructor(props) {
-    super(props);
-
-    this.titleEl = React.createRef();
-    this.descriptionEl = React.createRef();
-  }
-
   static contextType = AuthContext;
 
-  createQuestion = async event => {
-    event.preventDefault();
-
-    const title = this.titleEl.current.value;
-    const description = this.descriptionEl.current.value;
+  createQuestion = async values => {
+    const { title, description } = values;
 
     if (title.trim().length === 0 || description.trim().length === 0) {
       return;
