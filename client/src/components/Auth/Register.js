@@ -4,44 +4,6 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 class Register extends Component {
-  onSubmit = values => {
-    const { username, email, password, password2 } = values;
-
-    const requestBody = {
-      query: `
-        mutation {
-          createUser(userInput: {username: "${username}", email: "${email}", password: "${password}", password2: "${password2}"}) {
-            _id
-            username
-            email
-            password
-          }
-        }
-      `
-    };
-
-    fetch("http://localhost:5000/graphql", {
-      method: "POST",
-      body: JSON.stringify(requestBody),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => {
-        if (res.status !== 200 && res.status !== 201) {
-          throw new Error("Failed!");
-        }
-
-        return res.json();
-      })
-      .then(resData => {
-        console.log(resData);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
   render() {
     const { errors, touched, isSubmitting } = this.props;
     return (
@@ -150,7 +112,7 @@ export default withFormik({
       .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Please retype your password")
   }),
-  handleSubmit(values, { props }) {
+  handleSubmit(values) {
     const { username, email, password, password2 } = values;
 
     const requestBody = {

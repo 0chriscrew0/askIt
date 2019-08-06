@@ -1,27 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Form, Field, Formik } from "formik";
+import * as Yup from "yup";
 import AuthContext from "../../context/Auth-Context";
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-
-    this.emailEl = React.createRef();
-    this.passwordEl = React.createRef();
-  }
-
   static contextType = AuthContext;
 
-  onSubmit = event => {
-    event.preventDefault();
-
-    const email = this.emailEl.current.value;
-    const password = this.passwordEl.current.value;
+  onSubmit = values => {
+    const { email, password } = values;
 
     if (email.trim().length === 0 || password.trim().length === 0) {
       return;
     }
-    console.log(email, password);
 
     const requestBody = {
       query: `
@@ -65,35 +56,56 @@ class Login extends Component {
       <div className="login-page">
         <div className="container my-5">
           <h2 className="mb-4">Login</h2>
-
-          <form onSubmit={this.onSubmit}>
-            <div className="form-group">
-              <label htmlFor="email">Email address</label>
-              <input
-                name="email"
-                type="email"
-                ref={this.emailEl}
-                className="form-control"
-                id="email"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                name="password"
-                type="password"
-                ref={this.passwordEl}
-                className="form-control"
-                id="password"
-                placeholder="Password"
-              />
-            </div>
-            <button type="submit" className="btn btn-sm btn-primary">
-              Submit
-            </button>
-          </form>
+          <Formik
+            initialValues={{
+              email: "",
+              password: ""
+            }}
+            onSubmit={this.onSubmit}
+            validationSchema={Yup.object().shape({
+              email: Yup.string()
+                .email("Enter a valid email")
+                .required("Enter your email"),
+              password: Yup.string().required("Please enter a password")
+            })}
+            render={({ touched, errors, isSubmitting }) => (
+              <Form>
+                <div className="form-group">
+                  <Field
+                    name="email"
+                    type="email"
+                    className={`form-control ${touched.email &&
+                      errors.email &&
+                      "is-invalid"}`}
+                    placeholder="Enter email"
+                  />
+                  {touched.email && errors.email && (
+                    <p className="text-danger pt-1">{errors.email}</p>
+                  )}
+                </div>
+                <div className="form-group">
+                  <Field
+                    name="password"
+                    type="password"
+                    className={`form-control ${touched.password &&
+                      errors.password &&
+                      "is-invalid"}`}
+                    placeholder="Password"
+                  />
+                  {touched.password && errors.password && (
+                    <p className="text-danger pt-1">{errors.password}</p>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn btn-sm btn-primary"
+                >
+                  Submit
+                </button>
+              </Form>
+            )}
+          />
 
           <div className="my-4">
             <label htmlFor="register">Need an account?</label>
