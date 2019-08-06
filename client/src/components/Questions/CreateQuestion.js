@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
 import AuthContext from "../../context/Auth-Context";
 
 class CreateQuestion extends Component {
@@ -67,33 +69,56 @@ class CreateQuestion extends Component {
         <h4 className="display-5">New Question</h4>
         <hr className="questions-line mb-4 mt-0" />
 
-        <form onSubmit={this.createQuestion}>
-          <div className="form-group">
-            <label htmlFor="title">Title</label>
-            <input
-              name="title"
-              type="text"
-              ref={this.titleEl}
-              className="form-control"
-              id="title"
-              placeholder="Enter the title for your question"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="details">Description</label>
-            <textarea
-              name="description"
-              rows={4}
-              ref={this.descriptionEl}
-              className="form-control"
-              id="description"
-              placeholder="Enter any additional details"
-            />
-          </div>
-          <button type="submit" className="btn btn-block btn-primary">
-            Submit
-          </button>
-        </form>
+        <Formik
+          initialValues={{
+            title: "",
+            description: ""
+          }}
+          validationSchema={Yup.object().shape({
+            title: Yup.string()
+              .max(20, "Title must not exceed 20 chracters")
+              .required("Question must have a title"),
+            description: Yup.string().required(
+              "Question must have a description"
+            )
+          })}
+          onSubmit={this.createQuestion}
+          render={({ touched, errors, isSubmitting }) => (
+            <Form>
+              <div className="form-group">
+                <Field
+                  name="title"
+                  type="text"
+                  className={`form-control ${touched.title &&
+                    errors.title &&
+                    "is-invalid"}`}
+                  placeholder="Enter the title for your question"
+                />
+                {touched.title && errors.title && (
+                  <p className="text-danger pt-1">{errors.title}</p>
+                )}
+              </div>
+              <div className="form-group">
+                <label htmlFor="details">Description</label>
+                <Field
+                  component="textarea"
+                  name="description"
+                  rows={4}
+                  className={`form-control ${touched.description &&
+                    errors.description &&
+                    "is-invalid"}`}
+                  placeholder="Enter any additional details"
+                />
+                {touched.description && errors.description && (
+                  <p className="text-danger pt-1">{errors.description}</p>
+                )}
+              </div>
+              <button type="submit" className="btn btn-block btn-primary">
+                Submit
+              </button>
+            </Form>
+          )}
+        />
       </div>
     );
   }
