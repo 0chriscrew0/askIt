@@ -10,7 +10,7 @@
     "client-install": "npm install --prefix client",
     "watch-scss": "node-sass --watch client/src/resources/scss -o client/src/resources/css",
     "dev": "concurrently \"npm run server\" \"npm run start --prefix client\" \"npm run watch-scss\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Christopher Crow",
   "license": "ISC",
