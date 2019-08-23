@@ -32,7 +32,7 @@ class CreateQuestion extends Component {
     const token = this.context.token;
 
     try {
-      const res = await fetch("http://localhost:5000/graphql", {
+      const res = await fetch("/graphql", {
         method: "POST",
         body: JSON.stringify(requestBody),
         headers: {
